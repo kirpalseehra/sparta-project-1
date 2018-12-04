@@ -1,0 +1,23 @@
+body {
+    text-align: center;
+    background-color: white;
+  }
+
+#connectFour{
+
+  background-color: yellow;
+  display: inline-block;
+}
+
+.col{
+  height: 70px;
+  width: 70px;
+  display: inline-block;
+  background-color: white;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+
+  
+  
