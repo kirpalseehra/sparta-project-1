@@ -23,9 +23,29 @@ class ConnectFour {
 
   gridEventListeners() {
     const board = $(this.selector);
-    // when you hover over a cell it identifies each cell
+    function findLastCell(col) {
+      //get all the columns that have the same attribute data-col and make it equal to the index column col
+      const cells = $(`.col[data-col='${col}']`);
+      // reverse the array so you drop to the bottom first 
+      for (let i = cells.length - 1; i >= 0; i--) {
+        const currentCell = $(cells[i]);
+        if (currentCell.hasClass('empty')) {
+          return currentCell;
+        }
+      }
+      return null;
+
+    }
+    // when you hover over a cell it identifies each cell 
     board.on('mouseenter', '.col.empty', function () {
-      console.log('here', this);
+      const col = $(this).data('col');
+      const lastEmptyCell = findLastCell(col);
+      lastEmptyCell.addClass(`nextRedCounter`)
+    });
+
+    // when you hover elsewhere away from the cell it removes the colour from that cell
+    board.on('mouseleave', '.col', function () {
+      $('.col').removeClass(`nextRedCounter`);
     });
   }
 
