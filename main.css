@@ -1,17 +1,19 @@
 body {
     text-align: center;
     background-color: white;
+    color: rgb(189, 1, 1);
   }
 
 #connectFour{
-
-  background-color: yellow;
+  background-color: rgb(2, 2, 173);
   display: inline-block;
+  
+
 }
 
 .col{
-  height: 70px;
-  width: 70px;
+  height: 90px;
+  width: 90px;
   display: inline-block;
   background-color: white;
   border-radius: 50%;
