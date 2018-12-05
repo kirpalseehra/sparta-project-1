@@ -40,12 +40,20 @@ class ConnectFour {
     board.on('mouseenter', '.col.empty', function () {
       const col = $(this).data('col');
       const lastEmptyCell = findLastCell(col);
-      lastEmptyCell.addClass(`nextRedCounter`)
+      lastEmptyCell.addClass(`nextRedHover`)
     });
 
     // when you hover elsewhere away from the cell it removes the colour from that cell
     board.on('mouseleave', '.col', function () {
-      $('.col').removeClass(`nextRedCounter`);
+      $('.col').removeClass(`nextRedHover`);
+    });
+
+    board.on('click', '.col', function () {
+
+      const col = $(this).data('col');
+      const lastEmptyCell = findLastCell(col);
+      lastEmptyCell.removeClass('empty');
+      lastEmptyCell.addClass('redCounter');
     });
   }
 

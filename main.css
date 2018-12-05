@@ -20,8 +20,12 @@ body {
   margin: 5px;
 }
 
-.nextRedCounter{
+.nextRedHover{
   background-color:rgba(255, 166, 166, 0.746);
+}
+
+.redCounter{
+  background-color: rgb(155, 0, 0);
 }
 
 
