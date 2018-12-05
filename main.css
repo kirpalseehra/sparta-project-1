@@ -5,7 +5,7 @@ body {
   }
 
 #connectFour{
-  background-color: rgb(2, 2, 173);
+  background-color: rgb(255, 251, 0);
   display: inline-block;
   
 
@@ -17,16 +17,22 @@ body {
   display: inline-block;
   background-color: white;
   border-radius: 50%;
-  margin: 5px;
+  margin: 10px;
 }
 
-.nextRedHover{
+.next-red{
   background-color:rgba(255, 166, 166, 0.746);
+}
+
+.blackCounter{
+  background-color:black;
 }
 
 .redCounter{
   background-color: rgb(155, 0, 0);
 }
+
+
 
 
   
