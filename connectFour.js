@@ -3,13 +3,16 @@ class ConnectFour {
     this.ROWS = 6;
     this.COLS = 7;
     this.selector = selector;
-    this.player = 'redCounter';
+    //start off as red counters
+    this.currentPlayer = 'redCounter';
     this.createGrid();
     this.gridEventListeners();
   }
+
   //creating the rows anc columns for the grid using javascript and jquery
   createGrid() {
     const board = $(this.selector);
+    board.empty();
 
     console.log(board);
     for (let x = 0; x < this.ROWS; x++) {
@@ -21,8 +24,10 @@ class ConnectFour {
         row.append(col);
       }
     }
+
   }
 
+  //all the event listeners when a user clicks or hovers over each index in the grid
   gridEventListeners() {
     const board = $(this.selector);
     const that = this;
@@ -43,12 +48,12 @@ class ConnectFour {
     board.on('mouseenter', '.col.empty', function () {
       const col = $(this).data('col');
       const lastEmptyCell = findLastCell(col);
-      lastEmptyCell.addClass('next-${that.player}')
+      lastEmptyCell.addClass(`hover-${that.currentPlayer}`);
     });
 
     // when you hover elsewhere away from the cell it removes the colour from that cell
     board.on('mouseleave', '.col', function () {
-      $('.col').removeClass('next-${that.player}');
+      $('.col').removeClass(`hover-${that.currentPlayer}`);
     });
 
     board.on('click', '.col', function () {
@@ -56,10 +61,22 @@ class ConnectFour {
       const col = $(this).data('col');
       const lastEmptyCell = findLastCell(col);
       lastEmptyCell.removeClass('empty');
-      lastEmptyCell.addClass(that.player);
-      that.player = (that.player === 'redCounter') ? 'blackCounter' : 'redCounter';
-
+      lastEmptyCell.addClass(that.currentPlayer);
+      // if currentPlayer is equal to red then change it to yellow else change it to red
+      that.currentPlayer = (that.currentPlayer === 'redCounter') ? 'yellowCounter' : 'redCounter';
     });
   }
 
+  checkIfWin(row, col) {
+
+
+
+
+
+  }
+
 }
+
+// win conditions
+// change the text on player's turn
+// styling
