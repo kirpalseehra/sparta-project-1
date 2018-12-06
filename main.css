@@ -8,8 +8,8 @@ body {
 #connectFour{
   background-color: rgb(44, 29, 246);
   display: inline-block;
-     border: 10px solid rgb(44, 29, 246);
-    border-radius: 25px;
+  border: 10px solid rgb(44, 29, 246);
+  border-radius: 25px;
   
 }
 

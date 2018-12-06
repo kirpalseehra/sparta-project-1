@@ -62,12 +62,65 @@ class ConnectFour {
       const lastEmptyCell = findLastCell(col);
       lastEmptyCell.removeClass('empty');
       lastEmptyCell.addClass(that.currentPlayer);
+      lastEmptyCell.data('player', that.currentPlayer);
+      // calls the checkIfWin function and displays a message to the winner if the condition is satisfied
+      const winner = that.checkIfWin(lastEmptyCell.data('row'), lastEmptyCell.data('col'))
+      if (winner) {
+        alert('Congratulations! You are the winner!');
+      }
+
+
       // if currentPlayer is equal to red then change it to yellow else change it to red
       that.currentPlayer = (that.currentPlayer === 'redCounter') ? 'yellowCounter' : 'redCounter';
+
+
+
     });
   }
 
   checkIfWin(row, col) {
+
+    const that = this;
+
+
+    function getCell(i, j) {
+      return $(`.col[data-row='${i}'][data-col='${j}']`);
+    }
+
+    function checkDirection(direction) {
+      let total = 0;
+      let i = row + direction.i;
+      let j = col + direction.j;
+      let next = getCell(i, j);
+      while (i >= 0 && i < that.ROWS && j >= 0 && j < that.COLS && next.data('player') === that.currentPlayer) {
+        total++;
+        i += direction.i;
+        j += direction.j;
+        next = getCell(i, j);
+
+      }
+      return total;
+    }
+
+    function checkWin(directionA, directionB) {
+      const total = 1 +
+        checkDirection(directionA) +
+        checkDirection(directionB);
+      if (total >= 4 && total < 5) {
+        return that.currentPlayer;
+
+      } else {
+        return null;
+      }
+    }
+
+
+    function VerticalWin() {
+      return checkWin({ i: -1, j: 0 }, { i: 1, j: 0 });
+    }
+
+
+    return VerticalWin()
 
 
 
