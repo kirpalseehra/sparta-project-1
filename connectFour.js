@@ -80,6 +80,7 @@ class ConnectFour {
 
     const that = this;
 
+    //getting the rows and columns from the grid
     function getCell(i, j) {
       return $(`.col[data-row='${i}'][data-col='${j}']`);
     }
@@ -99,12 +100,11 @@ class ConnectFour {
       return total;
     }
 
-    // function to check if 
+    // function to check if the total is equal to 4 in either direction for each colour counter
     function checkWin(a, b) {
       const total = 1 + checkDirection(a) + checkDirection(b);
       if (total >= 4 && total < 5) {
         return that.currentPlayer;
-
       } else {
         return null;
       }
@@ -115,11 +115,16 @@ class ConnectFour {
       return checkWin({ i: -1, j: 0 }, { i: 1, j: 0 }) || checkWin({ i: 0, j: -1 }, { i: 0, j: 1 });
     }
 
-    return GameWinVH()
+
+    function GameWinDiags() {
+      // checking the co-ordinates diagonally from left to right and right to left
+      return checkWin({ i: 1, j: -1 }, { i: 1, j: 1 }) || checkWin({ i: 1, j: 1 }, { i: -1, j: -1 });
+
+    }
+
+    return GameWinVH() || GameWinDiags();
   }
 
 }
-
-// win conditions
 // change the text on player's turn
 // styling
