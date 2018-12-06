@@ -63,17 +63,15 @@ class ConnectFour {
       lastEmptyCell.removeClass('empty');
       lastEmptyCell.addClass(that.currentPlayer);
       lastEmptyCell.data('player', that.currentPlayer);
+
       // calls the checkIfWin function and displays a message to the winner if the condition is satisfied
       const winner = that.checkIfWin(lastEmptyCell.data('row'), lastEmptyCell.data('col'))
       if (winner) {
         alert('Congratulations! You are the winner!');
       }
 
-
       // if currentPlayer is equal to red then change it to yellow else change it to red
       that.currentPlayer = (that.currentPlayer === 'redCounter') ? 'yellowCounter' : 'redCounter';
-
-
 
     });
   }
@@ -81,7 +79,6 @@ class ConnectFour {
   checkIfWin(row, col) {
 
     const that = this;
-
 
     function getCell(i, j) {
       return $(`.col[data-row='${i}'][data-col='${j}']`);
@@ -102,10 +99,9 @@ class ConnectFour {
       return total;
     }
 
-    function checkWin(directionA, directionB) {
-      const total = 1 +
-        checkDirection(directionA) +
-        checkDirection(directionB);
+    // function to check if 
+    function checkWin(a, b) {
+      const total = 1 + checkDirection(a) + checkDirection(b);
       if (total >= 4 && total < 5) {
         return that.currentPlayer;
 
@@ -114,18 +110,12 @@ class ConnectFour {
       }
     }
 
-
-    function VerticalWin() {
-      return checkWin({ i: -1, j: 0 }, { i: 1, j: 0 });
+    function GameWinVH() {
+      // checking the co-ordinates vertically and horizontally to see if the player has won 
+      return checkWin({ i: -1, j: 0 }, { i: 1, j: 0 }) || checkWin({ i: 0, j: -1 }, { i: 0, j: 1 });
     }
 
-
-    return VerticalWin()
-
-
-
-
-
+    return GameWinVH()
   }
 
 }
