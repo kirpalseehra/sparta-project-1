@@ -15,10 +15,38 @@
 
 <body>
 
+  <!--allows us to access the sound file-->
   <audio id="applause" src="/sound/app-6.mp3" preload="auto"></audio>
 
   <div id="restartContainer">
+    <button id="myBtn">Instructions</button>
 
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>
+          <h2>How to play: </h2>
+          <br>
+          <h4> First, decide randomly which player will be the beginner; moves are made alternatively,one by turn.</h4>
+
+          <br>
+          <h4> Player one must then click the column they wish to place their first counter. Player two then has their
+            turn
+            to do the same. </h4>
+          <br>
+
+          <h4> The winner is the first player who gets four of their own counters in a vertical, horizontal or
+            diagonal row with no gaps between them. </h4>
+
+          <br>
+          <h4> Click 'New Game' to clear the board and play again.</h4>
+        </p>
+      </div>
+
+    </div>
     <h1 id="welcome">Welcome to Connect Four!</h1>
     <button id="newGame">New Game</button>
   </div>
