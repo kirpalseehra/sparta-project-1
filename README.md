@@ -12,6 +12,8 @@ For this project, I have created a Connect Four game where two players battle it
 2. Unzip file into selected folder on own device
 3. Open index.html and run in the terminal
 
+#### You can view the page [https://kirpalseehra.github.io/sparta-project-1/.]()
+
 ### Challenges (you can include images and code block here)
 1. Creating the grid for the game
 2. Creating the winning conditions
