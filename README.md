@@ -12,9 +12,6 @@ For this project, I have created a Connect Four game where two players battle it
 2. Unzip file into selected folder on own device
 3. Open index.html and run in the terminal
 
-(If its hosted on Github Pages then...)
-#### You can view the page [here]()
-
 ### Challenges (you can include images and code block here)
 1. Creating the grid for the game
 2. Creating the winning conditions
