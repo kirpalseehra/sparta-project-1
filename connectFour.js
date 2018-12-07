@@ -3,6 +3,7 @@ class ConnectFour {
     this.ROWS = 6;
     this.COLS = 7;
     this.selector = selector;
+    this.endGame = false;
     //start off as red counters
     this.currentPlayer = 'redCounter';
     this.createGrid();
@@ -46,6 +47,8 @@ class ConnectFour {
     }
     // when you hover over a cell it identifies each cell 
     board.on('mouseenter', '.col.empty', function () {
+      // if endGame is true then disable hovering 
+      if (that.endGame) return;
       const col = $(this).data('col');
       const lastEmptyCell = findLastCell(col);
       lastEmptyCell.addClass(`hover-${that.currentPlayer}`);
@@ -53,21 +56,25 @@ class ConnectFour {
 
     // when you hover elsewhere away from the cell it removes the colour from that cell
     board.on('mouseleave', '.col', function () {
+      if (that.endGame) return;
       $('.col').removeClass(`hover-${that.currentPlayer}`);
     });
 
     board.on('click', '.col', function () {
-
+      // if endGame is true then disable clicking
+      if (that.endGame) return;
       const col = $(this).data('col');
       const lastEmptyCell = findLastCell(col);
       lastEmptyCell.removeClass('empty');
       lastEmptyCell.addClass(that.currentPlayer);
       lastEmptyCell.data('player', that.currentPlayer);
 
+
       // calls the checkIfWin function and displays a message to the winner if the condition is satisfied
       const winner = that.checkIfWin(lastEmptyCell.data('row'), lastEmptyCell.data('col'))
       if (winner) {
         alert('Congratulations! You are the winner!');
+        that.endGame = true;
       }
 
       // if currentPlayer is equal to red then change it to yellow else change it to red
@@ -115,16 +122,14 @@ class ConnectFour {
       return checkWin({ i: -1, j: 0 }, { i: 1, j: 0 }) || checkWin({ i: 0, j: -1 }, { i: 0, j: 1 });
     }
 
-
     function GameWinDiags() {
       // checking the co-ordinates diagonally from left to right and right to left
+      // i: 1 means go down one index and -1 is to the left
       return checkWin({ i: 1, j: -1 }, { i: 1, j: 1 }) || checkWin({ i: 1, j: 1 }, { i: -1, j: -1 });
 
     }
-
     return GameWinVH() || GameWinDiags();
   }
-
 }
 // change the text on player's turn
 // styling

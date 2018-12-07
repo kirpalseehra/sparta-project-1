@@ -1,8 +1,8 @@
 body {
-    text-align: center;
-    background-color: white;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+    background-color: black;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
 #connectFour{
@@ -17,17 +17,17 @@ body {
   height: 90px;
   width: 90px;
   display: inline-block;
-  background-color: white;
+  background-color:black;
   border-radius: 50%;
   margin: 10px;
 }
 
 .hover-redCounter{
-  background-color: rgba(255, 45, 45, 0.608);
+  background-color: rgba(255, 45, 185, 0.608);
 }
 
 .redCounter{
-  background-color: red;
+  background-color: rgb(255, 0, 191);
 }
 
 .hover-yellowCounter{
@@ -35,15 +35,22 @@ body {
 }
 
 .yellowCounter{
-  background-color:yellow;
+  background-color:rgb(247, 231, 1);
 }
 
-#restartContainer {
+#restartContainer{
 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 
 }
+
+#newGame{
+  background-color: rgb(44, 29, 246);
+}
+
+
+
 
 
 
