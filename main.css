@@ -1,0 +1,107 @@
+body {
+  text-align: center;
+    background-color: black;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 25px 50px 75px 50px;
+  }
+
+#connectFour{
+  background-color: rgb(44, 29, 246);
+  display: inline-block;
+  border: 10px solid rgb(44, 29, 246);
+  border-radius: 25px;
+  
+}
+
+.col{
+  height: 90px;
+  width: 90px;
+  display: inline-block;
+  background-color:black;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.hover-redCounter{
+  background-color: rgba(255, 45, 185, 0.608);
+}
+
+.redCounter{
+  background-color: rgb(255, 0, 191);
+}
+
+.hover-yellowCounter{
+  background-color:rgba(255, 243, 73, 0.883);
+}
+
+.yellowCounter{
+  background-color:rgb(247, 231, 1);
+}
+
+#restartContainer{
+
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#newGame{
+  background-color: rgb(252, 122, 1);
+  font-size: 20px;
+}
+
+
+ #myBtn{
+  background-color: rgb(252, 122, 1);
+  font-size: 20px;  
+} 
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: rgb(252, 122, 1);
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid white;
+  width: 40%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+  
+  
