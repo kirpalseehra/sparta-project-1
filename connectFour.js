@@ -10,6 +10,7 @@ class ConnectFour {
     this.gridEventListeners();
   }
 
+
   //creating the rows anc columns for the grid using javascript and jquery
   createGrid() {
     const board = $(this.selector);
@@ -73,7 +74,10 @@ class ConnectFour {
       // calls the checkIfWin function and displays a message to the winner if the condition is satisfied
       const winner = that.checkIfWin(lastEmptyCell.data('row'), lastEmptyCell.data('col'))
       if (winner) {
+        // added applause when someone wins
+        document.getElementById('applause').play();
         alert('Congratulations! You are the winner!');
+
         that.endGame = true;
       }
 
